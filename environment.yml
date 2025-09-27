@@ -1,0 +1,34 @@
+name: gdal-image-service
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Core Python
+  - python=3.11
+
+  # Geospatial libraries
+  - gdal
+  - geos
+  - proj
+  - geotiff
+  - libspatialite
+
+  # Scientific computing
+  - numpy
+
+  # Python packages via pip
+  - pip
+  - pip:
+      - django==5.2.6
+      - djangorestframework==3.16.1
+      - django-cors-headers==4.9.0
+      - psycopg2-binary
+      - python-decouple==3.8
+      - python-dotenv==1.1.1
+      - requests==2.32.5
+      - certifi
+      - charset-normalizer
+      - idna
+      - urllib3
+      - sqlparse
+      - asgiref
