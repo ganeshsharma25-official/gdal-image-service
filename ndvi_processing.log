@@ -1,0 +1,6 @@
+NDVI file already exists: /Users/ganeshsharma/Desktop/sentinel_demo_NDVI.tif
+NDVI processing completed: /Users/ganeshsharma/Desktop/sentinel_demo_NDVI.tif
+Creating coverage store: sentinel_demo_NDVI in workspace: demoWorkspace
+File path: /Users/ganeshsharma/Desktop/sentinel_demo_NDVI.tif
+Coverage store sentinel_demo_NDVI created successfully
+NDVI styling applied to demoWorkspace:sentinel_demo_NDVI
