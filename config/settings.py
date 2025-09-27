@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.imageService',
-
 ]
 
 MIDDLEWARE = [
@@ -125,14 +124,15 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-GEOSERVER_BASE_URL = 'http://localhost:8080/geoserver'
-GEOSERVER_USERNAME = 'admin'
-GEOSERVER_PASSWORD = 'geoserver'
+# GeoServer Configuration from environment variables
+GEOSERVER_BASE_URL = os.getenv('GEOSERVER_BASE_URL', 'http://localhost:8080/geoserver')
+GEOSERVER_USERNAME = os.getenv('GEOSERVER_USERNAME', 'admin')
+GEOSERVER_PASSWORD = os.getenv('GEOSERVER_PASSWORD', 'geoserver')
 
 LOGS_DIR = os.path.join(BASE_DIR, 'logs')
 if not os.path.exists(LOGS_DIR):
     os.makedirs(LOGS_DIR)
-    
+
 # Logging Configuration
 LOGGING = {
     'version': 1,
