@@ -1,2 +1,11 @@
 conda install -c conda-forge gdal
 
+
+
+test-->
+POST
+http://localhost:8000/api/process-ndwi/
+
+{
+    "layer_name": "demoWorkspace:sentinel_demo"
+}

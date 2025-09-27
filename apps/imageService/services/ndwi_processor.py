@@ -5,38 +5,46 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class NDVIProcessor:
+class NDWIProcessor:
     
     def __init__(self):
         gdal.UseExceptions()
-        self.red_band = 4
+        self.green_band = 3
         self.nir_band = 8
     
-    def process_ndvi(self, input_file_path, workspace, layer_name):
-        """Process Sentinel-2 image to calculate NDVI and apply styling"""
+    def process_ndwi(self, input_file_path, workspace, layer_name):
+        """
+        Process Sentinel-2 image to calculate NDWI and apply styling
+        Returns output file path or None if processing fails
+        """
         try:
             if not self._validate_input_file(input_file_path):
                 return None
             
-            ndvi_output_path = self._generate_output_path(input_file_path, layer_name, "_NDVI")
-            styled_output_path = self._generate_output_path(input_file_path, layer_name, "_NDVI_styled")
+            ndwi_output_path = self._generate_output_path(input_file_path, layer_name, "_NDWI")
+            styled_output_path = self._generate_output_path(input_file_path, layer_name, "_NDWI_styled")
             
-            
-            if not self._calculate_ndvi(input_file_path, ndvi_output_path):
+            if os.path.exists(styled_output_path):
+                logger.error(f"NDWI styled file already exists: {styled_output_path}")
                 return None
             
             
-            if not self._apply_ndvi_styling(ndvi_output_path, styled_output_path):
-                self._cleanup_file(ndvi_output_path)
+            if not self._calculate_ndwi(input_file_path, ndwi_output_path):
                 return None
             
+           
+            if not self._apply_ndwi_styling(ndwi_output_path, styled_output_path):
+                self._cleanup_file(ndwi_output_path)
+                return None
             
-            self._cleanup_file(ndvi_output_path)
+          
+            self._cleanup_file(ndwi_output_path)
             
+            logger.info(f"NDWI processing completed: {styled_output_path}")
             return styled_output_path
             
         except Exception as e:
-            logger.error(f"NDVI processing failed: {str(e)}")
+            logger.error(f"NDWI processing failed: {str(e)}")
             return None
     
     def _validate_input_file(self, file_path):
@@ -53,16 +61,16 @@ class NDVIProcessor:
             
             band_count = dataset.RasterCount
             
-            if band_count < max(self.red_band, self.nir_band):
-                logger.error(f"Insufficient bands. Found {band_count}, need at least {max(self.red_band, self.nir_band)}")
+            if band_count < max(self.green_band, self.nir_band):
+                logger.error(f"Insufficient bands. Found {band_count}, need at least {max(self.green_band, self.nir_band)}")
                 dataset = None
                 return False
             
-            red_band = dataset.GetRasterBand(self.red_band)
+            green_band = dataset.GetRasterBand(self.green_band)
             nir_band = dataset.GetRasterBand(self.nir_band)
             
-            if red_band is None or nir_band is None:
-                logger.error("Required bands (4, 8) not accessible")
+            if green_band is None or nir_band is None:
+                logger.error("Required bands (3, 8) not accessible")
                 dataset = None
                 return False
             
@@ -79,27 +87,27 @@ class NDVIProcessor:
         output_filename = f"{layer_name}{suffix}.tif"
         return os.path.join(input_dir, output_filename)
     
-    def _calculate_ndvi(self, input_path, output_path):
-        """Calculate NDVI using GDAL operations"""
+    def _calculate_ndwi(self, input_path, output_path):
+        """Calculate NDWI using GDAL operations"""
         input_ds = None
         output_ds = None
         
         try:
             input_ds = gdal.Open(input_path, gdal.GA_ReadOnly)
             
-            red_band = input_ds.GetRasterBand(self.red_band)
+            green_band = input_ds.GetRasterBand(self.green_band)
             nir_band = input_ds.GetRasterBand(self.nir_band)
             
             cols = input_ds.RasterXSize
             rows = input_ds.RasterYSize
             
-            red_data = red_band.ReadAsArray().astype(np.float32)
+            green_data = green_band.ReadAsArray().astype(np.float32)
             nir_data = nir_band.ReadAsArray().astype(np.float32)
             
-            red_nodata = red_band.GetNoDataValue()
+            green_nodata = green_band.GetNoDataValue()
             nir_nodata = nir_band.GetNoDataValue()
             
-            ndvi = self._compute_ndvi_array(red_data, nir_data, red_nodata, nir_nodata)
+            ndwi = self._compute_ndwi_array(green_data, nir_data, green_nodata, nir_nodata)
             
             driver = gdal.GetDriverByName('GTiff')
             output_ds = driver.Create(
@@ -111,14 +119,14 @@ class NDVIProcessor:
             output_ds.SetProjection(input_ds.GetProjection())
             
             output_band = output_ds.GetRasterBand(1)
-            output_band.WriteArray(ndvi)
+            output_band.WriteArray(ndwi)
             output_band.SetNoDataValue(-9999.0)
             output_band.FlushCache()
             
             return True
             
         except Exception as e:
-            logger.error(f"NDVI calculation error: {str(e)}")
+            logger.error(f"NDWI calculation error: {str(e)}")
             return False
             
         finally:
@@ -127,66 +135,67 @@ class NDVIProcessor:
             if output_ds:
                 output_ds = None
     
-    def _compute_ndvi_array(self, red, nir, red_nodata, nir_nodata):
-        """Compute NDVI with proper nodata handling"""
+    def _compute_ndwi_array(self, green, nir, green_nodata, nir_nodata):
+        """Compute NDWI with proper nodata handling"""
         
-        valid_mask = np.ones_like(red, dtype=bool)
+        valid_mask = np.ones_like(green, dtype=bool)
         
-        if red_nodata is not None:
-            valid_mask &= (red != red_nodata)
+        if green_nodata is not None:
+            valid_mask &= (green != green_nodata)
         if nir_nodata is not None:
             valid_mask &= (nir != nir_nodata)
         
-        valid_mask &= (red > 0) & (nir > 0)
+        valid_mask &= (green > 0) & (nir > 0)
         
-        ndvi = np.full_like(red, -9999.0, dtype=np.float32)
+        ndwi = np.full_like(green, -9999.0, dtype=np.float32)
         
-        denominator = nir + red
+        denominator = green + nir
         valid_calc = valid_mask & (denominator != 0)
         
-        ndvi[valid_calc] = (nir[valid_calc] - red[valid_calc]) / denominator[valid_calc]
+        # NDWI = (Green - NIR) / (Green + NIR)
+        ndwi[valid_calc] = (green[valid_calc] - nir[valid_calc]) / denominator[valid_calc]
         
-        ndvi = np.clip(ndvi, -1.0, 1.0, out=ndvi, where=valid_calc)
+        ndwi = np.clip(ndwi, -1.0, 1.0, out=ndwi, where=valid_calc)
         
-        return ndvi
+        return ndwi
     
-
-    def _apply_ndvi_styling(self, ndvi_path, output_rgb_path):
-        """Apply NDVI color ramp to create RGB visualization"""
+    def _apply_ndwi_styling(self, ndwi_path, output_rgb_path):
+        """Apply NDWI color ramp to create RGB visualization"""
         try:
-            ndvi_values = np.array([-0.5, -0.2, -0.1, 0.0, 0.025, 0.05, 0.075, 0.1, 0.125, 
-                                    0.15, 0.175, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 
-                                    0.55, 0.6, 1.0])
+            ndwi_values = np.array([-1.0, -0.8, -0.3, 0.0, 0.1, 0.3, 0.5, 0.8, 1.0])
             
             colors_rgb = np.array([
-                [0x0c, 0x0c, 0x0c], [0xbf, 0xbf, 0xbf], [0xdb, 0xdb, 0xdb], [0xea, 0xea, 0xea],
-                [0xff, 0xf9, 0xcc], [0xed, 0xe8, 0xb5], [0xdd, 0xd8, 0x9b], [0xcc, 0xc6, 0x82],
-                [0xbc, 0xb7, 0x6b], [0xaf, 0xc1, 0x60], [0xa3, 0xcc, 0x59], [0x91, 0xbf, 0x51],
-                [0x7f, 0xb2, 0x47], [0x70, 0xa3, 0x3f], [0x60, 0x96, 0x35], [0x4f, 0x89, 0x2d],
-                [0x3f, 0x7c, 0x23], [0x30, 0x6d, 0x1c], [0x21, 0x60, 0x11], [0x0f, 0x54, 0x0a],
-                [0x00, 0x44, 0x00]
+                [0x00, 0x60, 0x00],  # Darker green at -1.0
+                [0x00, 0x80, 0x00],  # Green at -0.8
+                [0x60, 0xA0, 0x60],  # Light green at -0.3
+                [0xFF, 0xFF, 0xFF],  # White at 0.0
+                [0x40, 0x40, 0xB0],  # Very light blue at 0.1
+                [0x40, 0x40, 0xB0],  # Light blue at 0.3
+                [0x40, 0x40, 0xB0],  # Medium blue at 0.5
+                [0x00, 0x00, 0xCC],  # Blue at 0.8
+                [0x00, 0x00, 0xA0],  # Darker blue at 1.0
             ], dtype=np.uint8)
             
-            ndvi_ds = gdal.Open(ndvi_path, gdal.GA_ReadOnly)
-            ndvi_band = ndvi_ds.GetRasterBand(1)
-            ndvi = ndvi_band.ReadAsArray()
+            ndwi_ds = gdal.Open(ndwi_path, gdal.GA_ReadOnly)
+            ndwi_band = ndwi_ds.GetRasterBand(1)
+            ndwi = ndwi_band.ReadAsArray()
             
-            nodata = ndvi_band.GetNoDataValue()
+            nodata = ndwi_band.GetNoDataValue()
             if nodata is not None:
-                valid_mask = (ndvi != nodata)
+                valid_mask = (ndwi != nodata)
             else:
-                valid_mask = np.ones_like(ndvi, dtype=bool)
+                valid_mask = np.ones_like(ndwi, dtype=bool)
             
-            ndvi_clipped = np.clip(ndvi, -1.0, 1.0)
+            ndwi_clipped = np.clip(ndwi, -1.0, 1.0)
             
-            rows, cols = ndvi.shape
+            rows, cols = ndwi.shape
             red = np.zeros((rows, cols), dtype=np.uint8)
             green = np.zeros((rows, cols), dtype=np.uint8)
             blue = np.zeros((rows, cols), dtype=np.uint8)
             
-            red_interp = np.interp(ndvi_clipped, ndvi_values, colors_rgb[:, 0])
-            green_interp = np.interp(ndvi_clipped, ndvi_values, colors_rgb[:, 1])
-            blue_interp = np.interp(ndvi_clipped, ndvi_values, colors_rgb[:, 2])
+            red_interp = np.interp(ndwi_clipped, ndwi_values, colors_rgb[:, 0])
+            green_interp = np.interp(ndwi_clipped, ndwi_values, colors_rgb[:, 1])
+            blue_interp = np.interp(ndwi_clipped, ndwi_values, colors_rgb[:, 2])
             
             red[valid_mask] = red_interp[valid_mask].astype(np.uint8)
             green[valid_mask] = green_interp[valid_mask].astype(np.uint8)
@@ -194,10 +203,10 @@ class NDVIProcessor:
             
             driver = gdal.GetDriverByName('GTiff')
             out_ds = driver.Create(output_rgb_path, cols, rows, 3, gdal.GDT_Byte,
-                                options=['COMPRESS=LZW', 'TILED=YES', 'PHOTOMETRIC=RGB'])
+                                  options=['COMPRESS=LZW', 'TILED=YES', 'PHOTOMETRIC=RGB'])
             
-            out_ds.SetGeoTransform(ndvi_ds.GetGeoTransform())
-            out_ds.SetProjection(ndvi_ds.GetProjection())
+            out_ds.SetGeoTransform(ndwi_ds.GetGeoTransform())
+            out_ds.SetProjection(ndwi_ds.GetProjection())
             
             out_ds.GetRasterBand(1).WriteArray(red)
             out_ds.GetRasterBand(2).WriteArray(green)
@@ -205,20 +214,19 @@ class NDVIProcessor:
             
             out_ds.FlushCache()
             out_ds = None
-            ndvi_ds = None
+            ndwi_ds = None
             
             return True
             
         except Exception as e:
-            logger.error(f"NDVI styling error: {str(e)}")
+            logger.error(f"NDWI styling error: {str(e)}")
             return False
-    
-    
     
     def _cleanup_file(self, file_path):
         """Remove file if it exists"""
         try:
             if os.path.exists(file_path):
                 os.remove(file_path)
+                logger.info(f"Cleaned up file: {file_path}")
         except Exception as e:
             logger.warning(f"Failed to cleanup file {file_path}: {str(e)}")

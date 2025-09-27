@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -128,7 +129,10 @@ GEOSERVER_BASE_URL = 'http://localhost:8080/geoserver'
 GEOSERVER_USERNAME = 'admin'
 GEOSERVER_PASSWORD = 'geoserver'
 
-
+LOGS_DIR = os.path.join(BASE_DIR, 'logs')
+if not os.path.exists(LOGS_DIR):
+    os.makedirs(LOGS_DIR)
+    
 # Logging Configuration
 LOGGING = {
     'version': 1,
@@ -137,7 +141,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'ndvi_processing.log',
+            'filename': os.path.join(LOGS_DIR, 'info.log'),
         },
         'console': {
             'level': 'INFO',
