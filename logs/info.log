@@ -420,3 +420,24 @@ Message: {
 }
 Kafka producer connection closed
 Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Cleaned up file: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDWI.tif
+NDWI processing completed: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDWI_styled.tif
+Creating coverage store: sentinelImage_NDWI in workspace: demoWorkspace
+File path: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDWI_styled.tif
+Coverage store sentinelImage_NDWI created successfully
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 32
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDWI",
+  "layer_type": "NDWI",
+  "status": "success",
+  "timestamp": "2025-09-29T12:59:20.938507Z",
+  "original_layer": "sentinelImage",
+  "file_path": "/D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDWI_styled.tif"
+}
+Kafka producer connection closed
+Kafka producer connection closed
