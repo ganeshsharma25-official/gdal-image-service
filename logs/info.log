@@ -73,3 +73,285 @@ Message: {
 }
 Kafka producer connection closed
 Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+NDVI calculation error: cannot import name '_gdal_array' from 'osgeo' (/usr/local/lib/python3.9/site-packages/osgeo/__init__.py)
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 12
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:10:07.621616Z",
+  "original_layer": "sentinelImage",
+  "error_message": "NDVI processing failed"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
+File path: /host_d/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Coverage store sentinelImage_NDVI created successfully
+Coverage creation failed: 500 Server Error: Server Error for url: http://host.docker.internal:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores/sentinelImage_NDVI/coverages
+Cleaned up NDVI file: /host_d/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 13
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:22:04.442498Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Failed to publish NDVI layer to GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
+File path: /host_d/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Coverage store sentinelImage_NDVI created successfully
+Coverage creation failed: 500 Server Error: Server Error for url: http://host.docker.internal:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores/sentinelImage_NDVI/coverages
+Cleaned up NDVI file: /host_d/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 14
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:24:50.996924Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Failed to publish NDVI layer to GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+File not found at path: /host_d/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 15
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:34:09.141732Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+File not found at path: /host_d/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 16
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:36:18.475992Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+File not found at path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 17
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:39:34.655143Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+File not found at path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 18
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:47:00.967177Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Standard path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Docker path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+File not found at path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 19
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:48:55.231812Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Standard path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Docker path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+File not found at path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 20
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T09:50:34.297866Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Standard path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Docker path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+File not found at path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 21
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T10:00:49.318822Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Standard path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Docker path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+File not found at path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 22
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T10:03:34.566819Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Standard path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Docker path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+File not found at path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 23
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T10:04:14.000295Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Standard path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Docker path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+File not found at path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 24
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T10:06:30.258038Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+File not found at path: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 25
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T10:11:57.945291Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Layer demoWorkspace:sentinelImage not found in GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Standard path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Fixed colon in path: /D:/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif -> /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Docker path: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A.tif
+Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
+File path: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Coverage store sentinelImage_NDVI created successfully
+Coverage creation failed: 500 Server Error: Server Error for url: http://host.docker.internal:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores/sentinelImage_NDVI/coverages
+Cleaned up NDVI file: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 26
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T10:14:18.448175Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Failed to publish NDVI layer to GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed

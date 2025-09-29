@@ -6,8 +6,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
+      - .:/app
       - ./logs:/app/logs
-      - D:/:/host_d 
+      - D:/:/D 
     environment:
       - GEOSERVER_BASE_URL=http://host.docker.internal:8080/geoserver
       - GEOSERVER_USERNAME=admin
