@@ -355,3 +355,68 @@ Message: {
 }
 Kafka producer connection closed
 Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
+File path: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Coverage store creation failed:
+Status: 500
+Response: Store 'sentinelImage_NDVI' already exists in workspace 'demoWorkspace'
+URL: http://geoserver:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores
+Cleaned up NDVI file: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 29
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T12:08:18.168026Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Failed to publish NDVI layer to GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
+File path: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Coverage store creation failed:
+Status: 500
+Response: Store 'sentinelImage_NDVI' already exists in workspace 'demoWorkspace'
+URL: http://geoserver:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores
+Cleaned up NDVI file: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 30
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "failed",
+  "timestamp": "2025-09-29T12:11:30.930472Z",
+  "original_layer": "sentinelImage",
+  "error_message": "Failed to publish NDVI layer to GeoServer"
+}
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
+File path: /D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif
+Coverage store sentinelImage_NDVI created successfully
+Kafka message sent successfully:
+Topic: image-processing-status
+Partition: 0
+Offset: 31
+Message: {
+  "workspace": "demoWorkspace",
+  "store_name": "sentinelImage_NDVI",
+  "layer_type": "NDVI",
+  "status": "success",
+  "timestamp": "2025-09-29T12:11:54.002904Z",
+  "original_layer": "sentinelImage",
+  "file_path": "/D/data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)/sentinelImage_NDVI_styled.tif"
+}
+Kafka producer connection closed
+Kafka producer connection closed

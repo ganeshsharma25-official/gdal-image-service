@@ -85,66 +85,107 @@ class GeoServerService:
             logger.error(f"Failed to publish NDVI layer: {str(e)}")
             return False
     
-    # def _extract_file_path(self, file_url):
-    #     """Extract local file path from file:// URL"""
-    #     parsed_url = urlparse(file_url)
-    #     return parsed_url.path
-    
     def _extract_file_path(self, file_url):
-        """Extract local file path from file:// URL (cross-platform)"""
+        """Extract local file path from file:// URL"""
         parsed_url = urlparse(file_url)
+        return parsed_url.path
+    
+    # def _extract_file_path(self, file_url):
+    #     """Extract local file path from file:// URL (cross-platform)"""
+    #     parsed_url = urlparse(file_url)
         
-        # Reconstruct path including netloc if it contains drive letter
-        if parsed_url.netloc and ':' in parsed_url.netloc:
-            # Windows case: file://D:/... -> netloc='D:', path='/data/...'
-            full_path = '/' + parsed_url.netloc + parsed_url.path
-        else:
-            full_path = parsed_url.path
+    #     # Reconstruct path including netloc if it contains drive letter
+    #     if parsed_url.netloc and ':' in parsed_url.netloc:
+    #         # Windows case: file://D:/... -> netloc='D:', path='/data/...'
+    #         full_path = '/' + parsed_url.netloc + parsed_url.path
+    #     else:
+    #         full_path = parsed_url.path
         
-        #return url2pathname(unquote(full_path))
-        standard_path = url2pathname(unquote(full_path))
-        logger.info(f"Standard path: {standard_path}")
+    #     #return url2pathname(unquote(full_path))
+    #     standard_path = url2pathname(unquote(full_path))
+    #     logger.info(f"Standard path: {standard_path}")
         
-        # Convert Windows path to Docker mount path
-        docker_path = self._convert_to_docker_path(standard_path)
-        logger.info(f"Docker path: {docker_path}")
+    #     # Convert Windows path to Docker mount path
+    #     docker_path = self._convert_to_docker_path(standard_path)
+    #     logger.info(f"Docker path: {docker_path}")
         
-        return docker_path
+    #     return docker_path
     
 
-    def _convert_to_docker_path(self, standard_path):
-        """Convert path to Docker mount format"""
-        # Simple fix: remove colon after drive letter
-        # /D:/data/... -> /D/data/...
-        if ':' in standard_path and standard_path.startswith('/'):
-            docker_path = standard_path.replace(':/', '/')
-            logger.info(f"Fixed colon in path: {standard_path} -> {docker_path}")
-            return docker_path
+    # def _convert_to_docker_path(self, standard_path):
+    #     """Convert path to Docker mount format"""
+    #     # Simple fix: remove colon after drive letter
+    #     # /D:/data/... -> /D/data/...
+    #     if ':' in standard_path and standard_path.startswith('/'):
+    #         docker_path = standard_path.replace(':/', '/')
+    #         logger.info(f"Fixed colon in path: {standard_path} -> {docker_path}")
+    #         return docker_path
         
-        return standard_path
+    #     return standard_path
     
-    def _convert_docker_path_to_windows_path(self, docker_path):
-        """Convert Docker mount path back to Windows path for GeoServer"""
-        # /D/data/... -> D:/data/...
-        if docker_path.startswith('/') and len(docker_path) >= 3 and docker_path[2] == '/':
-            drive_letter = docker_path[1]
-            rest_path = docker_path[2:]
-            windows_path = f"{drive_letter}:{rest_path}"
-            logger.info(f"Converted Docker path to Windows: {docker_path} -> {windows_path}")
-            return windows_path
+    # def _convert_docker_path_to_windows_path(self, docker_path):
+    #     """Convert Docker mount path back to Windows path for GeoServer"""
+    #     # /D/data/... -> D:/data/...
+    #     if docker_path.startswith('/') and len(docker_path) >= 3 and docker_path[2] == '/':
+    #         drive_letter = docker_path[1]
+    #         rest_path = docker_path[2:]
+    #         windows_path = f"{drive_letter}:{rest_path}"
+    #         logger.info(f"Converted Docker path to Windows: {docker_path} -> {windows_path}")
+    #         return windows_path
         
-        return docker_path
+    #     return docker_path
         
     def _validate_file_exists(self, file_path):
         """Validate that the file exists on local filesystem"""
         import os
         return os.path.exists(file_path) and os.path.isfile(file_path)
     
+    # def _create_coverage_store(self, workspace, store_name, file_path):
+    #     """Create GeoServer coverage store for NDVI layer"""
+    #     try:
+    #         url = f"{self.rest_url}/workspaces/{workspace}/coveragestores"
+    #         windows_file_path = self._convert_docker_path_to_windows_path(file_path)
+    #         payload = {
+    #             "coverageStore": {
+    #                 "name": store_name,
+    #                 "type": "GeoTIFF",
+    #                 "enabled": True,
+    #                 "workspace": {
+    #                     "name": workspace
+    #                 },
+    #                 "url": f"file://{windows_file_path}"
+    #             }
+    #         }
+            
+    #         logger.info(f"Creating coverage store: {store_name} in workspace: {workspace}")
+    #         logger.info(f"File path: {windows_file_path}")
+            
+    #         response = requests.post(
+    #             url, 
+    #             json=payload,
+    #             headers={'Content-Type': 'application/json'},
+    #             auth=self.auth,
+    #             timeout=60
+    #         )
+            
+    #         if response.status_code != 201:
+    #             logger.error(f"Coverage store creation failed:")
+    #             logger.error(f"Status: {response.status_code}")
+    #             logger.error(f"Response: {response.text}")
+    #             logger.error(f"URL: {url}")
+    #             return False
+            
+    #         logger.info(f"Coverage store {store_name} created successfully")
+    #         return True
+            
+    #     except Exception as e:
+    #         logger.error(f"Coverage store creation error: {str(e)}")
+    #         return False
     def _create_coverage_store(self, workspace, store_name, file_path):
         """Create GeoServer coverage store for NDVI layer"""
         try:
             url = f"{self.rest_url}/workspaces/{workspace}/coveragestores"
-            windows_file_path = self._convert_docker_path_to_windows_path(file_path)
+            
             payload = {
                 "coverageStore": {
                     "name": store_name,
@@ -153,12 +194,12 @@ class GeoServerService:
                     "workspace": {
                         "name": workspace
                     },
-                    "url": f"file://{windows_file_path}"
+                    "url": f"file://{file_path}"
                 }
             }
             
             logger.info(f"Creating coverage store: {store_name} in workspace: {workspace}")
-            logger.info(f"File path: {windows_file_path}")
+            logger.info(f"File path: {file_path}")
             
             response = requests.post(
                 url, 
@@ -181,7 +222,6 @@ class GeoServerService:
         except Exception as e:
             logger.error(f"Coverage store creation error: {str(e)}")
             return False
-
     
     def _create_coverage(self, workspace, layer_name):
         """Create GeoServer coverage (layer) from coverage store"""
