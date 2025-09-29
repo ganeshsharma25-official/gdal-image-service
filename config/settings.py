@@ -132,6 +132,11 @@ GEOSERVER_BASE_URL = os.getenv('GEOSERVER_BASE_URL', 'http://localhost:8080/geos
 GEOSERVER_USERNAME = os.getenv('GEOSERVER_USERNAME', 'admin')
 GEOSERVER_PASSWORD = os.getenv('GEOSERVER_PASSWORD', 'geoserver')
 
+# Kafka Configuration from environment variables
+KAFKA_BOOTSTRAP_SERVERS = os.getenv('KAFKA_BOOTSTRAP_SERVERS', '10.208.26.232:9092')
+KAFKA_TOPIC = os.getenv('KAFKA_TOPIC', 'image-processing-status')
+
+
 LOGS_DIR = os.path.join(BASE_DIR, 'logs')
 if not os.path.exists(LOGS_DIR):
     os.makedirs(LOGS_DIR)
