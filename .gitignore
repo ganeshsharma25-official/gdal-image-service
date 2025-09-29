@@ -4,3 +4,4 @@ logs/
 *.log
 *.pyc
 __pycache__/
+config/__pycache__/settings.cpython-311.pyc

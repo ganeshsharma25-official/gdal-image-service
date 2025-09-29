@@ -29,7 +29,12 @@ SECRET_KEY = 'django-insecure-r1&x(#=sh81pj%esno$=5kr0glsg^q3%7lv!#7#y+ie1v**kmz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '10.208.10.83',  
+    '*',  # Allow all hosts (development only)
+]
 
 
 # Application definition
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'apps.imageService',
 ]
 
@@ -126,7 +132,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # GeoServer Configuration from environment variables
 GEOSERVER_BASE_URL = os.getenv('GEOSERVER_BASE_URL', 'http://localhost:8080/geoserver')
 GEOSERVER_USERNAME = os.getenv('GEOSERVER_USERNAME', 'admin')
@@ -163,4 +168,14 @@ LOGGING = {
             'propagate': True,
         },
     },
+}
+
+# REST Framework Configuration
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ],
 }

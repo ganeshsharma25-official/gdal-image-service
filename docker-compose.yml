@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs
+      - D:/:/host_d 
+    environment:
+      - GEOSERVER_BASE_URL=http://host.docker.internal:8080/geoserver
+      - GEOSERVER_USERNAME=admin
+      - GEOSERVER_PASSWORD=geoserver
+      - KAFKA_BOOTSTRAP_SERVERS=10.208.26.232:9092
+      - KAFKA_TOPIC=image-processing-status
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

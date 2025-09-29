@@ -9,3 +9,6 @@ http://localhost:8000/api/process-ndwi/
 {
     "layer_name": "demoWorkspace:sentinel_demo"
 }
+
+
+python manage.py runserver 0.0.0.0:8000

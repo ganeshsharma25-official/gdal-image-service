@@ -1,131 +1,54 @@
-Creating coverage store: sentinel_demo_NDVI in workspace: demoWorkspace
-File path: /Users/ganeshsharma/Desktop/sentinel_demo_NDVI_styled.tif
-Coverage store sentinel_demo_NDVI created successfully
-Coverage store demoWorkspace:2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A not found
-Coverage store demoWorkspace:2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A not found
-Coverage store demoWorkspace:2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A not found
-NDWI calculation error: PROJ: proj_create_from_name: C:\Program Files\PostgreSQL\17\share\contrib\postgis-3.5\proj\proj.db contains DATABASE.LAYOUT.VERSION.MINOR = 4 whereas a number >= 6 is expected. It comes from another PROJ installation.
-NDWI calculation error: PROJ: proj_create_from_name: C:\Program Files\PostgreSQL\17\share\contrib\postgis-3.5\proj\proj.db contains DATABASE.LAYOUT.VERSION.MINOR = 4 whereas a number >= 6 is expected. It comes from another PROJ installation.
-Cleaned up file: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDWI.tif
-NDWI processing completed: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDWI_styled.tif
-Creating coverage store: sentinelImage_NDWI in workspace: demoWorkspace
-File path: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDWI_styled.tif
-Coverage store sentinelImage_NDWI created successfully
-Coverage creation failed: 500 Server Error: Server Error for url: http://localhost:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores/sentinelImage_NDWI/coverages
-Cleaned up NDWI file: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDWI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store sentinelImage_NDVI created successfully
-Coverage creation failed: 500 Server Error: Server Error for url: http://localhost:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores/sentinelImage_NDVI/coverages
-Cleaned up NDVI file: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store sentinelImage_NDVI created successfully
-Coverage creation failed: 500 Server Error: Server Error for url: http://localhost:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores/sentinelImage_NDVI/coverages
-Cleaned up NDVI file: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: /data/mayur_23-9-25/26-09-25/2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: \data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store sentinelImage_NDVI created successfully
-Coverage creation failed: 500 Server Error: Server Error for url: http://localhost:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores/sentinelImage_NDVI/coverages
-Cleaned up NDVI file: \data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: \data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store sentinelImage_NDVI created successfully
-Coverage creation failed: 500 Server Error: Server Error for url: http://localhost:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores/sentinelImage_NDVI/coverages
-Cleaned up NDVI file: \data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: \data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store creation failed:
-Status: 500
-Response: Store 'sentinelImage_NDVI' already exists in workspace 'demoWorkspace'
-URL: http://localhost:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores
-Cleaned up NDVI file: \data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: \data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store creation failed:
-Status: 500
-Response: Store 'sentinelImage_NDVI' already exists in workspace 'demoWorkspace'
-URL: http://localhost:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores
-Cleaned up NDVI file: \data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: D:\data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store creation failed:
-Status: 500
-Response: Store 'sentinelImage_NDVI' already exists in workspace 'demoWorkspace'
-URL: http://localhost:8080/geoserver/rest/workspaces/demoWorkspace/coveragestores
-Cleaned up NDVI file: D:\data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: D:\data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store sentinelImage_NDVI created successfully
 Kafka producer initialized for 10.208.26.232:9092
-Creating coverage store: sentinelImage_NDVI_styled in workspace: demoWorkspace
-File path: D:\data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store sentinelImage_NDVI_styled created successfully
+NDWI styled file already exists: D:\data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDWI_styled.tif
 Kafka message sent successfully:
 Topic: image-processing-status
 Partition: 0
-Offset: 0
+Offset: 8
 Message: {
   "workspace": "demoWorkspace",
-  "store_name": "sentinelImage_NDVI_styled",
-  "layer_type": "NDVI",
-  "status": "success",
-  "timestamp": "2025-09-29T05:43:29.333698Z",
-  "original_layer": "sentinelImage",
-  "file_path": "D:\\data\\mayur_23-9-25\\26-09-25\\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\\sentinelImage_NDVI_styled.tif"
-}
-Kafka producer connection closed
-Kafka producer connection closed
-Kafka producer initialized for 10.208.26.232:9092
-Kafka message sent successfully:
-Topic: image-processing-status
-Partition: 0
-Offset: 1
-Message: {
-  "workspace": "demoWorkspace",
-  "store_name": "sentinelImage_NDVI_styled",
-  "layer_type": "NDVI",
+  "store_name": "sentinelImage_NDWI",
+  "layer_type": "NDWI",
   "status": "failed",
-  "timestamp": "2025-09-29T05:43:39.548940Z",
+  "timestamp": "2025-09-29T06:17:19.932828Z",
   "original_layer": "sentinelImage",
-  "error_message": "NDVI layer demoWorkspace:sentinelImage_NDVI_styled already exists"
+  "error_message": "NDWI processing failed"
 }
 Kafka producer connection closed
 Kafka producer connection closed
 Kafka producer initialized for 10.208.26.232:9092
+Kafka producer connection closed
+Kafka producer connection closed
+Kafka producer initialized for 10.208.26.232:9092
+NDWI styled file already exists: D:\data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDWI_styled.tif
 Kafka message sent successfully:
 Topic: image-processing-status
 Partition: 0
-Offset: 2
+Offset: 9
 Message: {
   "workspace": "demoWorkspace",
-  "store_name": "sentinelImage_NDVI_styled",
-  "layer_type": "NDVI",
+  "store_name": "sentinelImage_NDWI",
+  "layer_type": "NDWI",
   "status": "failed",
-  "timestamp": "2025-09-29T05:44:45.957137Z",
+  "timestamp": "2025-09-29T06:20:06.417000Z",
   "original_layer": "sentinelImage",
-  "error_message": "NDVI layer demoWorkspace:sentinelImage_NDVI_styled already exists"
+  "error_message": "NDWI processing failed"
 }
 Kafka producer connection closed
 Kafka producer connection closed
 Kafka producer initialized for 10.208.26.232:9092
-Creating coverage store: sentinelImage_NDVI in workspace: demoWorkspace
-File path: D:\data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDVI_styled.tif
-Coverage store sentinelImage_NDVI created successfully
+NDWI styled file already exists: D:\data\mayur_23-9-25\26-09-25\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\sentinelImage_NDWI_styled.tif
 Kafka message sent successfully:
 Topic: image-processing-status
 Partition: 0
-Offset: 3
+Offset: 10
 Message: {
   "workspace": "demoWorkspace",
-  "store_name": "sentinelImage_NDVI",
-  "layer_type": "NDVI",
-  "status": "success",
-  "timestamp": "2025-09-29T05:58:52.974966Z",
+  "store_name": "sentinelImage_NDWI",
+  "layer_type": "NDWI",
+  "status": "failed",
+  "timestamp": "2025-09-29T06:20:38.833457Z",
   "original_layer": "sentinelImage",
-  "file_path": "D:\\data\\mayur_23-9-25\\26-09-25\\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\\sentinelImage_NDVI_styled.tif"
+  "error_message": "NDWI processing failed"
 }
 Kafka producer connection closed
 Kafka producer connection closed
@@ -138,13 +61,13 @@ Coverage store sentinelImage_NDWI created successfully
 Kafka message sent successfully:
 Topic: image-processing-status
 Partition: 0
-Offset: 4
+Offset: 11
 Message: {
   "workspace": "demoWorkspace",
   "store_name": "sentinelImage_NDWI",
   "layer_type": "NDWI",
   "status": "success",
-  "timestamp": "2025-09-29T05:59:46.978271Z",
+  "timestamp": "2025-09-29T06:22:09.619209Z",
   "original_layer": "sentinelImage",
   "file_path": "D:\\data\\mayur_23-9-25\\26-09-25\\2020-10-29-00_00_2020-10-29-23_59_Sentinel-2_L2A (1)\\sentinelImage_NDWI_styled.tif"
 }

@@ -99,7 +99,15 @@ class GeoServerService:
             full_path = '/' + parsed_url.netloc + parsed_url.path
         else:
             full_path = parsed_url.path
-             
+
+         # Convert Windows paths for Docker container
+        if full_path.startswith('/C:') or full_path.startswith('/c:'):
+            # Convert /C:/path/to/file to /host_c/path/to/file
+            return full_path.replace('/C:', '/host_c').replace('/c:', '/host_c')
+        elif full_path.startswith('/D:') or full_path.startswith('/d:'):
+            # Convert /D:/path/to/file to /host_d/path/to/file
+            return full_path.replace('/D:', '/host_d').replace('/d:', '/host_d')    
+        
         return url2pathname(unquote(full_path))
     
     def _validate_file_exists(self, file_path):
