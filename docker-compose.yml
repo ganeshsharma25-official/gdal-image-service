@@ -9,7 +9,7 @@ services:
       - ./logs:/app/logs
       - D:/:/D  
     environment:
-      - GEOSERVER_BASE_URL=http://geoserver:8080/geoserver  # Connect to Docker GeoServer
+      - GEOSERVER_BASE_URL=http://geoserver:8080/geoserver
       - GEOSERVER_USERNAME=admin
       - GEOSERVER_PASSWORD=geoserver
       - KAFKA_BOOTSTRAP_SERVERS=10.208.26.232:9092
@@ -22,7 +22,7 @@ services:
   geoserver:
     image: kartoza/geoserver:2.27.2
     ports:
-      - "8080:8080"  # Access GeoServer at localhost:8080
+      - "8080:8080"
     environment:
       - GEOSERVER_ADMIN_PASSWORD=geoserver
       - GEOSERVER_ADMIN_USER=admin
