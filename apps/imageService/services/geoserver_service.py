@@ -85,10 +85,22 @@ class GeoServerService:
             logger.error(f"Failed to publish NDVI layer: {str(e)}")
             return False
     
+    # def _extract_file_path(self, file_url):
+    #     """Extract local file path from file:// URL"""
+    #     parsed_url = urlparse(file_url)
+    #     return parsed_url.path
     def _extract_file_path(self, file_url):
-        """Extract local file path from file:// URL"""
+        """Extract local file path from file:// URL (cross-platform)"""
         parsed_url = urlparse(file_url)
-        return parsed_url.path
+        
+        # Reconstruct path including netloc if it contains drive letter
+        if parsed_url.netloc and ':' in parsed_url.netloc:
+            # Windows case: file://D:/... -> netloc='D:', path='/data/...'
+            full_path = '/' + parsed_url.netloc + parsed_url.path
+        else:
+            full_path = parsed_url.path
+             
+        return url2pathname(unquote(full_path))    
     
     
     def _validate_file_exists(self, file_path):
