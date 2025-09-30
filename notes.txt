@@ -12,3 +12,12 @@ http://localhost:8000/api/process-ndwi/
 
 
 python manage.py runserver 0.0.0.0:8000
+
+# Clean build
+docker-compose down
+docker-compose build --no-cache
+docker-compose up -d
+
+
+# Check logs
+docker-compose logs -f web

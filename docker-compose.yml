@@ -3,7 +3,7 @@ services:
   web:
     build: .
     ports:
-      - "8000:8000"
+      - "0.0.0.0:8000:8000"
     volumes:
       - .:/app
       - ./logs:/app/logs
@@ -22,7 +22,7 @@ services:
   geoserver:
     image: kartoza/geoserver:2.27.2
     ports:
-      - "8080:8080"
+      - "0.0.0.0:8080:8080"
     environment:
       - GEOSERVER_ADMIN_PASSWORD=geoserver
       - GEOSERVER_ADMIN_USER=admin
