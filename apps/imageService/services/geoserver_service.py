@@ -1,10 +1,9 @@
+import os
 import requests
 import json
 import logging
-from urllib.parse import urlparse
 from django.conf import settings
-from urllib.parse import urlparse, unquote
-from urllib.request import url2pathname
+from urllib.parse import urlparse
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +15,8 @@ class GeoServerService:
         self.username = getattr(settings, 'GEOSERVER_USERNAME', 'admin')
         self.password = getattr(settings, 'GEOSERVER_PASSWORD', 'geoserver')
         self.auth = (self.username, self.password)
+        self.data_path = getattr(settings, 'DATA_PATH', '/data')
+        self.container_data_path = getattr(settings, 'CONTAINER_DATA_PATH', '/data')
     
     def get_layer_file_path(self, workspace, layer_name):
         """
@@ -88,8 +89,7 @@ class GeoServerService:
     def _extract_file_path(self, file_url):
         """Extract local file path from file:// URL"""
         parsed_url = urlparse(file_url)
-        return parsed_url.path
-    
+        return parsed_url.path   
         
     def _validate_file_exists(self, file_path):
         """Validate that the file exists on local filesystem"""
@@ -129,10 +129,8 @@ class GeoServerService:
                 logger.error(f"Coverage store creation failed:")
                 logger.error(f"Status: {response.status_code}")
                 logger.error(f"Response: {response.text}")
-                logger.error(f"URL: {url}")
                 return False
             
-            logger.info(f"Coverage store {store_name} created successfully")
             return True
             
         except Exception as e:

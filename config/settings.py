@@ -132,6 +132,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# Data Path Configuration
+DATA_PATH = os.getenv('DATA_PATH', '/data')
+CONTAINER_DATA_PATH = os.getenv('CONTAINER_DATA_PATH', '/data')
+
 # GeoServer Configuration from environment variables
 GEOSERVER_BASE_URL = os.getenv('GEOSERVER_BASE_URL', 'http://localhost:8080/geoserver')
 GEOSERVER_USERNAME = os.getenv('GEOSERVER_USERNAME', 'admin')
@@ -179,3 +184,4 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
     ],
 }
+

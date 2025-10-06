@@ -7,13 +7,15 @@ services:
     volumes:
       - .:/app
       - ./logs:/app/logs
-      - D:/:/D  
+      - ${DATA_PATH}:${CONTAINER_DATA_PATH}
     environment:
       - GEOSERVER_BASE_URL=http://geoserver:8080/geoserver
       - GEOSERVER_USERNAME=${GEOSERVER_USERNAME:-admin}
       - GEOSERVER_PASSWORD=${GEOSERVER_PASSWORD}
       - KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS}
       - KAFKA_TOPIC=${KAFKA_TOPIC:-image-processing-status}
+      - DATA_PATH=${DATA_PATH}
+      - CONTAINER_DATA_PATH=${CONTAINER_DATA_PATH}
     depends_on:
       - geoserver
     networks:
@@ -27,9 +29,11 @@ services:
       - GEOSERVER_ADMIN_PASSWORD=${GEOSERVER_PASSWORD}
       - GEOSERVER_ADMIN_USER=${GEOSERVER_USERNAME:-admin}
       - GEOSERVER_DATA_DIR=/opt/geoserver/data_dir
+      - DATA_PATH=${DATA_PATH}
+      - CONTAINER_DATA_PATH=${CONTAINER_DATA_PATH}
     volumes:
       - geoserver_data:/opt/geoserver/data_dir
-      - D:/:/D
+      - ${DATA_PATH}:${CONTAINER_DATA_PATH}
     networks:
       - app-network
     restart: unless-stopped
