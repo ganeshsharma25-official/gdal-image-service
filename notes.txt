@@ -19,4 +19,4 @@ docker-compose up -d
 
 
 # Check logs
-docker-compose logs -f web
+docker-compose logs -f image-service

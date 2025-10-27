@@ -1,6 +1,6 @@
 
 services:
-  web:
+  image-service:
     build: .
     ports:
       - "0.0.0.0:8000:8000"
